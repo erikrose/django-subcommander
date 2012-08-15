@@ -17,7 +17,7 @@ example top-level command; you'd put this in your app's
 
         help = 'Eat, top, and do various things with desserts.'
         args = '<subcommand> [more arguments and options]'
-    
+
         def _subcommand(self, name):
             """
             Return a management command that implements the subcommand of the
@@ -33,9 +33,9 @@ example top-level command; you'd put this in your app's
         # You could put this in another module or wherever you want.
         help = 'Eat a dessert.'
         args = '[number of bites]'
-        
+
         # Add options here with make_option(), in the usual way.
-        
+
         def handle(self, *args, **options):
             ...
 
@@ -56,10 +56,10 @@ The help for the top-level command will list its subcommands if you implement
 
     class Command(SubcommandDispatcher):
         ...
-        
+
         def _subcommand(self, name):
             ...
-        
+
         def _subcommand_names(self):
             """Return a list of the names of all the subcommands."""
             return ['eat', 'top']
@@ -67,10 +67,10 @@ The help for the top-level command will list its subcommands if you implement
 Then, ``./manage.py dessert --help`` will result in something like this::
 
     Usage: ...
-    
+
     Options:
       ...
-    
+
     Subcommands:
       eat [number of bites]
       top <topping> [more toppings]
